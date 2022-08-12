@@ -1,5 +1,7 @@
 const users = require('./users.json');
+
 const puppeteer = require('puppeteer');
+
 const visitPage = (url) => {
   return new Promise((res, rej) => {
     puppeteer.launch({ headless: false }).then(browser => {
@@ -11,6 +13,7 @@ const visitPage = (url) => {
     }).catch(reason => rej(reason));
   })
 };
+
 const login = (username, password) => (page) => {
   return new Promise((res, rej) => {
     page.type('#username', username).then(() => {
@@ -23,7 +26,6 @@ const login = (username, password) => (page) => {
     })
   })
 };
-
 
 const hostGame = (page) => new Promise((res, rej) => {
   const hostButton = 'a[href="/host"]';
@@ -43,16 +45,19 @@ const joinGame = (gameId) => page => new Promise((res, rej) => {
   page.waitForSelector(joinButton).then(() =>
     page.click(joinButton).then(() => {
       page.waitForSelector(gameIdInput).then(() =>
-        page.type(gameIdInput, gameId).then(() => page.click('.join-btn'))
-          .then(() => res(page))
+        page.type(gameIdInput, gameId).then(() =>
+          page.click('.join-btn')).then(() =>
+            res(page))
       )
     })
   ).catch(err => rej(err));
 });
+
 const playGame = (hostPage) => {
   const playButton = '#play';
   hostPage.waitForSelector(playButton, { visible: true }).then(() => hostPage.click(playButton, { delay: 3000 }));
-}
+};
+
 const loginUserInNewBrowser = ({ username, password }) =>
   visitPage('http://localhost:8000').then(login(username, password));
 
@@ -60,7 +65,8 @@ const startGame = ([akPage, pkPage, lpPage]) => {
   hostGame(akPage).then(gameId => {
     Promise.all([pkPage, lpPage].map(joinGame(gameId))).then(() => playGame(akPage))
   })
-}
+};
+
 const main = () =>
   Promise.all([users.ak, users.pk, users.lp].map(loginUserInNewBrowser))
     .then(startGame);
