@@ -1,0 +1,4 @@
+#! /bin/bash
+
+PROJECT="/Users/devireddyankammarao/playground/js/gitClassroom/scotland-yard-byomkesh";
+(cd $PROJECT; c8 npm test)

@@ -18,5 +18,21 @@
   "rs": {
     "username": "rs",
     "password": "1"
+  },
+  "a": {
+    "username": "a",
+    "password": "1"
+  },
+  "b": {
+    "username": "b",
+    "password": "1"
+  },
+  "c": {
+    "username": "c",
+    "password": "1"
+  },
+  "d": {
+    "username": "d",
+    "password": "1"
   }
 }
