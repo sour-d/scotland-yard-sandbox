@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const visitPage = (url) => {
   return new Promise((res, rej) => {
-    puppeteer.launch({ headless: false }).then(browser => {
+    puppeteer.launch({ headless: false, defaultViewport: null }).then(browser => {
       browser.newPage().then(page => {
         page.goto(url).then(() => {
           res(page);
@@ -27,12 +27,12 @@ const login = (username, password) => (page) => {
 
 const hostGame = (page) => new Promise((res, rej) => {
   const hostButton = 'a[href="/host"]';
-  const linkText = '#link-text';
+  const gameId = '#game-id';
   page.waitForSelector(hostButton).then(() =>
     page.click(hostButton).then(() => {
-      page.waitForSelector(linkText).then(() =>
-        page.$eval(linkText, e => e.innerText).then(gameLink => {
-          res(gameLink.split('=')[1]);
+      page.waitForSelector(gameId).then(() =>
+        page.$eval(gameId, e => e.innerText).then(gameLink => {
+          res(gameLink);
         }))
     })).catch(err => rej(err));
 });

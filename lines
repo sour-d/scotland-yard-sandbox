@@ -1,0 +1,13 @@
+#! /bin/bash
+
+PROJECT="/Users/devireddyankammarao/playground/js/gitClassroom/scotland-yard-byomkesh"
+
+(cd $PROJECT
+echo -e "$(wc -l public/js/**/* ) frontend js lines";
+echo -e "$(wc -l public/css/* ) css ";
+echo -e "$(wc -l views/* ) html";
+echo -e "$(wc -l src/**/* ) backend";
+echo -e "$(wc -l test/*/* ) tests";
+echo -e "$(wc -l setup.sh ) sh";
+echo -e "$(wc -l index.js) index"
+)|grep 'total';

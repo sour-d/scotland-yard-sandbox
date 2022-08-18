@@ -1,5 +1,11 @@
 #! /bin/bash
 
+
+# echo '{"games":[], "newGameId":1}' > data/games.json
+# echo '{}' > data/session.json
+
 PROJECT="/Users/devireddyankammarao/playground/js/gitClassroom/scotland-yard-byomkesh"
 cp ./qa.env "${PROJECT}/.env"
+
+
 (cd $PROJECT; npm start)
