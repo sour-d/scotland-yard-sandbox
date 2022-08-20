@@ -1,4 +1,4 @@
 #! /bin/bash
 
-PROJECT="/Users/devireddyankammarao/playground/js/gitClassroom/scotland-yard-byomkesh";
-(cd $PROJECT; c8 npm test)
+PROJECT="/Users/souravdas/practice/js/assigments/scotland-yard-byomkesh";
+(cd $PROJECT; npm test)

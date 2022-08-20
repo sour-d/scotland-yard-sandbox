@@ -4,7 +4,7 @@ const data = {
     {
       "players": [
         {
-          "username": "ak",
+          "username": "sourav das",
           "role": "Mr. X",
           "currentPosition": 19,
           "isHost": true,
@@ -19,7 +19,7 @@ const data = {
           "log": []
         },
         {
-          "username": "pk",
+          "username": "sourav banerjee",
           "role": "Detective Red",
           "currentPosition": 8,
           "isHost": false,
@@ -34,7 +34,7 @@ const data = {
           "log": []
         },
         {
-          "username": "gk",
+          "username": "rishabh",
           "role": "Detective Green",
           "currentPosition": 9,
           "isHost": false,
@@ -49,7 +49,7 @@ const data = {
           "log": []
         },
         {
-          "username": "dk",
+          "username": "ankamma",
           "role": "Detective Purple",
           "currentPosition": 32,
           "isHost": false,
@@ -74,4 +74,4 @@ const data = {
 
 const fs = require('fs');
 
-fs.writeFileSync('../data/games.json', JSON.stringify(data), 'utf8');
+fs.writeFileSync('./data/games.json', JSON.stringify(data), 'utf8');

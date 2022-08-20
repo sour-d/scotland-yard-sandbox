@@ -3,7 +3,16 @@ const { loginUserInNewBrowser, startGame } = require('./lib.js');
 
 
 const main = () =>
-  Promise.all([users.rs, users.lp, users.a, users.b, users.c, users.d].map(loginUserInNewBrowser))
+  Promise.all(
+    [
+      users['sourav das'],
+      users['sourav banerjee'],
+      users['rishabh'],
+      users['ankamma'],
+      users['praful'],
+      users['subhash']
+    ].map(loginUserInNewBrowser)
+  )
     .then(startGame);
 
 main();

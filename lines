@@ -1,6 +1,6 @@
 #! /bin/bash
 
-PROJECT="/Users/devireddyankammarao/playground/js/gitClassroom/scotland-yard-byomkesh"
+PROJECT="/Users/souravdas/practice/js/assigments/scotland-yard-byomkesh"
 
 (cd $PROJECT
 echo -e "$(wc -l public/js/**/* ) frontend js lines";
